@@ -1,0 +1,69 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>我的Django</title>
+    <link rel="stylesheet" href="{% static 'css/semantic.css' %}">
+  </head>
+  <body>
+  <div class="ui basic vertical segment" style="padding-top:0;height:360px;box-sizing:border-box;margin-bottom:30px">
+      <img src="{% static 'images/banner.jpg' %}" alt="" class="ui image">
+      <div class="ui text menu" style="position:absolute;top:10px;right:20px;">
+        <div class="right menu">
+          <a href="{% url 'post_new' %}" style="color:white">
+            <i class="plus link icon"></i>
+            新建
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui vertical basic segment" style="padding-left:200px;padding-right:200px">
+       {% block content %}
+        {% endblock %}
+    </div>
+
+    <div class="ui inverted vertical basic segment">
+      <div class="ui container basic inverted segment">
+        <div class="ui inverted four column grid">
+          <div class="row">
+            <div class="column">
+              <div class="ui inverted borderless vertical menu">
+                <div class="item">
+                  我的博客
+                </div>
+                <div class="item">
+                  tzx119wade@gmail.com
+                </div>
+                <div class="item">
+                  Wechat Number
+                </div>
+                <div class="item">
+                  Phone Number
+                </div>
+              </div>
+            </div>
+
+            <div class="right floated column">
+              <div class="ui inverted borderless vertical menu">
+                <div class="item">
+                  send @email
+                </div>
+                <div class="item">
+                  send @email
+                </div>
+                <div class="item">
+                  send @email
+                </div>
+                <div class="item">
+                  send @email
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

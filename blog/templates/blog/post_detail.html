@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+    <div class="ui container basic segment" style="margin-top: 20px">
+
+        <div class="ui text menu">
+          <div class="item">
+            <h2 class="ui header"><a href="" style="color: #0f0f10">{{ post.title }}</a></h2>
+          </div>
+          <div class="right menu">
+            <div class="item">
+              <a href="{% url 'post_edit' pk=post.pk %}" class="ui sub header">
+                <i class="edit grey icon"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <p>{{ post.text |linebreaksbr }}</p>
+        <div class="ui text menu" style="margin-top: 60px">
+          <div class="item">
+            <img src="{% static 'images/elliot.jpg' %}" class="ui avatar circular image">
+            <span>{{ post.author.username }}</span>
+          </div>
+          {% if post.published_date %}
+          <div class="right menu">
+            <div class="item" style="font-size:12px;">
+              Publish:{{ post.published_date }}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+</div>
+{% endblock %}

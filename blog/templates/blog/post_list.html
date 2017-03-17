@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+{% for post in posts %}
+<div class="ui container basic segment" >
+        <h3 class="ui left aligned header">
+          <a href="{% url 'post_detail' pk=post.pk %}" style="color: #0f0f10">{{ post.title }}</a>
+        </h3>
+        <p>{{ post.text |linebreaksbr }}</p>
+        <div class="ui text menu">
+          <div class="item">
+            <img src="{% static 'images/elliot.jpg' %}" class="ui avatar circular image">
+            <span>{{ post.author.username }}</span>
+          </div>
+          <div class="right menu">
+            <div class="item" style="font-size:12px;">
+              Publish:{{ post.published_date }}
+            </div>
+          </div>
+        </div>
+        <div class="ui divider"></div>
+</div>
+{% endfor %}
+
+{% endblock %}
