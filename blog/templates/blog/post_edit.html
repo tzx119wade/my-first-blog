@@ -7,15 +7,9 @@
     <div class="ui container vertical basic segment" style="margin-bottom:160px;margin-top:80px">
       <form class="ui form" method="POST">{% csrf_token %}
           {{ form.as_p }}
-{#        <div class="field">#}
-{#          <label>标题</label>#}
-{#          <input type="text" name="title" placeholder="文章标题">#}
-{#        </div>#}
-{#        <div class="field" style="margin-top:40px">#}
-{#          <label>内容</label>#}
-{#          <textarea placeholder="文章内容"></textarea>#}
-{#        </div>#}
-        <button type="submit" name="button" class="ui button">发布</button>
+
+
+        <button type="submit" name="button" class="ui button">保存</button>
       </form>
     </div>
 

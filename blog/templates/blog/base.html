@@ -3,20 +3,39 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>我的Django</title>
+    <title>Django_Blog</title>
     <link rel="stylesheet" href="{% static 'css/semantic.css' %}">
   </head>
   <body>
   <div class="ui basic vertical segment" style="padding-top:0;height:360px;box-sizing:border-box;margin-bottom:30px">
       <img src="{% static 'images/banner.jpg' %}" alt="" class="ui image">
-      <div class="ui text menu" style="position:absolute;top:10px;right:20px;">
-        <div class="right menu">
-          <a href="{% url 'post_new' %}" style="color:white">
-            <i class="plus link icon"></i>
-            新建
+      <div class="ui inverted text menu" style="position:absolute;top:6px;left:20px;">
+        <div class="item">
+          <a href="{% url 'post_home' %}">
+            <i class="home icon"></i>
+            <span class="ui sub header" style="color:White">首页</span></a>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="item">
+          <a href="{% url 'post_draft_list' %}">
+            <i class="folder icon"></i>
+            <span class="ui sub header" style="color:white">草稿箱</span>
           </a>
         </div>
+        <div class="item">
+          <a href="{% url 'post_new' %}">
+            <i class="plus icon"></i>
+            <span class="ui sub header" style="color:White">新建</span>
+          </a>
+        </div>
+
+        {% else %}
+         <div class="item">
+         <a href="{% url 'login' %}">点击登录</a>
+         </div>
+        {% endif %}
       </div>
+
     </div>
 
     <div class="ui vertical basic segment" style="padding-left:200px;padding-right:200px">

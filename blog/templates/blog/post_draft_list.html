@@ -2,8 +2,10 @@
 {% load staticfiles %}
 
 {% block content %}
-{% for post in posts %}
-<div class="ui container basic segment" >
+
+    {% for post in posts %}
+        <div class="ui container basic segment" >
+
         <h3 class="ui left aligned header">
           <a href="{% url 'post_detail' pk=post.pk %}" style="color: #0f0f10">{{ post.title }}</a>
         </h3>
@@ -15,12 +17,13 @@
           </div>
           <div class="right menu">
             <div class="item" style="font-size:12px;">
-              发布日期:{{ post.published_date }}
+              created:{{ post.created_date }}
             </div>
           </div>
         </div>
         <div class="ui divider"></div>
-</div>
-{% endfor %}
+        </div>
+
+    {% endfor %}
 
 {% endblock %}

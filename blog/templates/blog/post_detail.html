@@ -15,7 +15,21 @@
                 <i class="edit grey icon"></i>
               </a>
             </div>
+            {% if not post.published_date  %}
+            <div class="item">
+              <a href="{% url 'post_publish' pk=post.pk %}" class="ui sub header">
+                <i class="send grey icon"></i>
+              </a>
+            </div>
+            {% endif %}
+
+          <div class="item">
+              <a href="{% url 'post_remove' pk=post.pk %}" class="ui sub header">
+                <i class="trash grey icon"></i>
+              </a>
+            </div>
           </div>
+
         </div>
         <p>{{ post.text |linebreaksbr }}</p>
         <div class="ui text menu" style="margin-top: 60px">
@@ -29,7 +43,14 @@
               Publish:{{ post.published_date }}
             </div>
           </div>
+          {% else %}
+
+           <div class="right menu">
+            <div class="item" style="font-size:12px;">
+              created:{{ post.created_date }}
+            </div>
+          </div>
           {% endif %}
         </div>
-</div>
+    </div>
 {% endblock %}
